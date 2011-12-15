@@ -1,3 +1,4 @@
+let t_Co = 256
 set nocompatible
 syntax on
 
@@ -91,9 +92,7 @@ if version >= 700
     autocmd FileType tex setlocal spell spelllang=en_us
 endif
 
-if &t_Co == 256
-  colorscheme vibrantink
-endif
+colorscheme vibrantink
 
 " vibrantink does not look great with diffs
 au FileType diff colorscheme desert

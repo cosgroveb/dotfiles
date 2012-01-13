@@ -140,3 +140,6 @@ function! Trim()
 endfunction
 command! -nargs=0 Trim :call Trim()
 nnoremap <silent> <Leader>cw :Trim<CR>
+
+set nocompatible " Disable vi-compatibility
+set laststatus=2 " Always show the statusline

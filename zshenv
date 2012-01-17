@@ -36,6 +36,7 @@ export PATH="$PATH:/usr/local/pear/bin"
 export PATH="$PATH:$SYSTEM_SCRIPTS/bin"
 export PATH="$PATH:$EC2_HOME/bin:$EC2_AMI_HOME/bin"
 export PATH="$PATH:/usr/local/Cellar/python/2.7.1/bin"
+export PATH="$PATH:$HOME/bin"
 
 export MANPATH=/opt/local/share/man:$MANPATH
 
@@ -65,3 +66,23 @@ source ~/.btaliases
 [[ -s ~/.zshenv_personal ]] && source ~/.zshenv_personal
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# tmux rename - re-orders your tmux windows
+tmr()
+{
+  for session in $(tmux ls | awk -F: '{print $1}') ;do
+    active_window=$(tmux lsw -t ${session} | awk -F: '/\(active\)$/ {print $1}')
+    inum=0
+    for window in $(tmux lsw -t ${session} | awk -F: '{print $1}') ;do
+      if [ ${window} -gt ${inum} ] ;then
+        echo "${session}:${window} -> ${session}:${inum}"
+        tmux movew -d -s ${session}:${window} -t ${session}:${inum}
+      fi
+      if [ ${window} = ${active_window} ] ;then
+        new_active_window=${inum}
+      fi
+      inum=$((${inum}+1))
+    done
+    tmux select-window -t ${session}:${new_active_window}
+  done
+}

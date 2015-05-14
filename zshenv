@@ -63,8 +63,6 @@ compdef _cap cap
 source ~/.aliases
 source ~/.btaliases
 
-[[ -s ~/.zshenv_personal ]] && source ~/.zshenv_personal
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # tmux rename - re-orders your tmux windows
@@ -86,3 +84,6 @@ tmr()
     tmux select-window -t ${session}:${new_active_window}
   done
 }
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

@@ -1,3 +1,1 @@
-alias tma="tmux attach -t"
-alias tml="tmux list-sessions"
-alias tmn="tmux new-session -s"
+alias pbcopy='xsel --clipboard --input'

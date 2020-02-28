@@ -17,5 +17,3 @@ set -o emacs
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export PROMPT='%{$fg_bold[green]%}%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%# '
-
-export GREP_OPTIONS='--color'

@@ -1,4 +1,4 @@
 alias pbcopy='xsel --clipboard --input'
 alias grep='grep --color'
 alias egrep='egrep --color'
-
+alias open='xdg-open'

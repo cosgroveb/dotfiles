@@ -1,4 +1,6 @@
 source ~/.aliases
+source ~/.do_pat
+source ~/.terraform_vars
 
 autoload -U compinit
 compinit
